@@ -1,4 +1,4 @@
 class HomeController < ApplicationController
-  def new
+  def view
   end
 end
