@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
-    session[:identity] = Identity.find_by_oauth(auth)
+    @identity = Identity.find_by_oauth(auth)
 
     if @identity.nil?
       @identity = Identity.create_with_oauth(auth)
@@ -28,5 +28,6 @@ class SessionsController < ApplicationController
 
   def destroy
     self.current_user = nil
+    redirect_to root_url, notice: "Signed out!"
   end
 end
