@@ -20,8 +20,16 @@ class SessionsController < ApplicationController
         self.current_user = @identity.user
         redirect_to root_url, notice: "Signed in!"
       else
-        session[:auth] = auth
-        redirect_to users_new_url
+        user = User.find_by email: auth['info']['email']
+        if user.nil?
+          session[:auth] = auth
+          redirect_to users_new_url
+        else
+          @identity.user = user
+          @identity.save
+          self.current_user = user
+          redirect_to root_url
+        end
       end
     end
   end

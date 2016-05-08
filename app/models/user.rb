@@ -4,9 +4,6 @@ class User < ApplicationRecord
   validates :name, uniqueness: true
 
   def self.create_with_oauth(info)
-    user = find_by email: info['email']
-    if user.nil?
-      new name: info['name'], email: info['email']
-    end
+    new name: info['name'], email: info['email']
   end
 end

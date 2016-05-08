@@ -4,6 +4,7 @@ html
   == csrf_meta_tags
   == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
 body
   .navbar-fixed
     nav
@@ -16,7 +17,7 @@ body
               a href='#'
                 |Hello, #{user_name}
             - else
-              a href='/auth/github'
+              a onclick="$('#sign_in_modal').openModal()"
                 |Sign in
           li
             a href='#'
@@ -26,6 +27,6 @@ body
               a href='#{logout_url}'
                 |Logout
   - unless signed_in?
-    = render partial: 'new_user'
+    = render partial: 'sign_in'
 
   ==yield

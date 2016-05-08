@@ -23,4 +23,4 @@ $ ->
   sign_in = $('#sign_in')
   if sign_in != undefined
     sign_in.click () ->
-      console.log('modal_open')
+      $('#sign_in_modal').openModal()
