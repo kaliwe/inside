@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
-    @identity = Identity.find_by_oauth(auth)
+    session[:identity] = Identity.find_by_oauth(auth)
 
     if @identity.nil?
       @identity = Identity.create_with_oauth(auth)
@@ -20,11 +20,8 @@ class SessionsController < ApplicationController
         self.current_user = @identity.user
         redirect_to root_url, notice: "Signed in!"
       else
-        user = User.create_with_oauth(auth['info'])
-        @identity.user = user
-        @identity.save
-        self.current_user = user
-        redirect_to root_url, notice: "New user is created"
+        session[:auth] = auth
+        redirect_to users_new_url
       end
     end
   end

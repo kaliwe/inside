@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require materialize-sprockets
 //= require turbolinks
 //= require_tree .
+
+$.ajaxSetup({
+  headers: {
+    'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+  }
+});

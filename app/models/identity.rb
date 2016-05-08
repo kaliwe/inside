@@ -6,6 +6,6 @@ class Identity < ApplicationRecord
   end
 
   def self.create_with_oauth(auth)
-    create(uid: auth['uid'], provider: auth['provider'])
+    new(uid: auth['uid'], provider: auth['provider'])
   end
 end
