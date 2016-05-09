@@ -1,16 +1,11 @@
 #sign_in_modal.modal.hoverable
-  h5.center
-    |Choose service to sign in
   .modal-content
-    .row
-      .col.s4
-        .center
-	      a href='/auth/vk'
-            img src='vk.png' width='70%'
-      .col.s4
-        .center
-	      a href='/auth/github'
-            img src='github.png' width='70%'
+    ul.collection.with-header
+      li.collection-header
+        h4
+          |Choose login provider
+      = render partial: "collection_avatar_item", locals: { img: 'github.png', url: 'auth/github', title: 'Github.com' }
+      = render partial: "collection_avatar_item", locals: { img: 'vk.png', url: 'auth/vk', title: 'Vk.com' }
   .modal-footer
     a.modal-action.modal-close.btn-flat
       |Close
