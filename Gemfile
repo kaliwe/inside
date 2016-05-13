@@ -39,6 +39,10 @@ gem 'materialize-sass'
 # Authentification using oauth
 gem 'omniauth'
 gem 'omniauth-github'
+gem 'omniauth-vk'
+
+# Markdown in posts support
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

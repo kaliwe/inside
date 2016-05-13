@@ -4,11 +4,30 @@ html
   == csrf_meta_tags
   == stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
   == javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"
 body
-  .navbar-fixed
+  #header.navbar-fixed
     nav
-      .nav-wrapper
-        a.brand-logo href=''
-          |Kaliwe
+      .nav-wrapper.blue-grey.darken-4
+        .container
+          a.brand-logo href=''
+            |Inside kaliwe
+          ul#nav-mobile.right.hide-on-med-and-down
+            li
+              - if signed_in?
+                a href='#'
+                  |Hello, #{user_name}
+              - else
+                a onclick="$('#sign_in_modal').openModal()"
+                  |Sign in
+            li
+              a href='#'
+                |Posts
+            - if signed_in?
+              li
+                a href='#{logout_url}'
+                  |Logout
+  - unless signed_in?
+    = render partial: 'sign_in'
 
   ==yield

@@ -1,0 +1,16 @@
+@import "simplemde.min";
+@import "github.min";
+
+.editor-toolbar.fullscreen,
+.CodeMirror-fullscreen,
+.editor-preview-side,
+.CodeMirror-vscrollbar,
+.CodeMirror-hscrollbar
+{
+    z-index: 1009;
+}
+
+
+.CodeMirror, .CodeMirror-scroll {
+    min-height: 150px;
+}

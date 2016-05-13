@@ -1,0 +1,11 @@
+#sign_in_modal.modal.hoverable
+  .modal-content
+    ul.collection.with-header
+      li.collection-header
+        h4
+          |Choose login provider
+      = render partial: "collection_avatar_item", locals: { img: 'github.png', url: 'auth/github', title: 'Github.com' }
+      = render partial: "collection_avatar_item", locals: { img: 'vk.png', url: 'auth/vk', title: 'Vk.com' }
+  .modal-footer
+    a.modal-action.modal-close.btn-flat
+      |Close

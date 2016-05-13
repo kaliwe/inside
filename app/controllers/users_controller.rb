@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       self.current_user = user
       identity.user = user
       identity.save
+      redirect_to root_url
     else
       respond_to do |format|
         format.json status: 500
