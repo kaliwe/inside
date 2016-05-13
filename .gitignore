@@ -22,3 +22,10 @@
 
 # Ignore vim swp
 *.swp
+.idea/.name
+.idea/encodings.xml
+.idea/kaliwe.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
